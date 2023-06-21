@@ -52,14 +52,14 @@ height:348px;
                     <td>
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click1" />
+                        <asp:Button ID="Button1" runat="server" Text="Add" OnClick="Button1_Click1" />
                     </td>
                 </tr>
                 <tr>
                     <td>Remove last item in list</td>
                     <td></td>
                     <td>
-                        <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click1" />
+                        <asp:Button ID="Button2" runat="server" Text="Remove" OnClick="Button2_Click1" />
 
                     </td>
                 </tr>
@@ -67,7 +67,7 @@ height:348px;
                     <td>Remove specific item from list</td>
                         <td><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="Button6" runat="server" Text="Button" OnClick="Button6_Click1" />
+                        <asp:Button ID="Button6" runat="server" Text="Remove" OnClick="Button6_Click1" />
 
                     </td>
                 </tr>
@@ -75,7 +75,7 @@ height:348px;
                     <td>check value avaiability in todo list</td>
                     <td><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="Button3" runat="server" Text="Button" OnClick="Button3_Click1"/>
+                        <asp:Button ID="Button3" runat="server" Text="check" OnClick="Button3_Click1"/>
 
                     </td>
                 </tr>
@@ -83,7 +83,7 @@ height:348px;
                     <td>Get last item inserted</td>
                     <td></td>
                     <td>
-                        <asp:Button ID="Button4" runat="server" Text="Button" OnClick="Button4_Click1" />
+                        <asp:Button ID="Button4" runat="server" Text="Peek" OnClick="Button4_Click1" />
 
                     </td>
                 </tr>
@@ -91,10 +91,10 @@ height:348px;
                     <td>clear todo list</td>
                     <td></td>
                     <td>
-                        <asp:Button ID="Button5" runat="server" Text="Button" OnClick="Button5_Click1" /></td>
+                        <asp:Button ID="Button5" runat="server" Text="clear" OnClick="Button5_Click1" /></td>
                 </tr>
                 <tr>
-                    <td colspan="3"> <asp:Button ID="Button7" runat="server" Text="Button"  /></td></td>
+                    <td colspan="3"> <asp:Button ID="Button7" runat="server" Text="Save" OnClick="Button7_Click1"  /></td></td>
                 </tr>
                
             </table>

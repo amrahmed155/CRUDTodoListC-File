@@ -19,7 +19,7 @@ namespace WebApplication4
             try
             {
 
-                TextWriter writer = new StreamWriter(Server.MapPath("credentialsUser.txt"), append: true);
+                TextWriter writer = new StreamWriter(Server.MapPath("Files/credentialsUser.txt"), append: true);
                 //string line = reader.ReadToEnd();
                 writer.WriteLine(u1 + " " + p1);
                 

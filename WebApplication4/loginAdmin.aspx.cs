@@ -43,7 +43,7 @@ namespace WebApplication4
                         // Label2.Text = "Welcome your Username and password are correct";
                         reader.Close();
 
-                        Response.Redirect(Server.MapPath("createUser.aspx"));
+                        Response.Redirect(Server.MapPath("Files/createUser.aspx"));
                         return line;
 
                     }
@@ -82,7 +82,7 @@ namespace WebApplication4
             try
             {
               
-                TextWriter writer = new StreamWriter(Server.MapPath("credentialsUser.txt"));
+                TextWriter writer = new StreamWriter(Server.MapPath("Files/credentialsUser.txt"));
                 //string line = reader.ReadToEnd();
                 writer.WriteLine(u1 + " " + p1);
 
@@ -118,7 +118,7 @@ namespace WebApplication4
 
             String u1 = usera1.Text;
             String p1 = passworda1.Text;
-            ReadFileHandled(Server.MapPath("credentials.txt"), u1, p1);
+            ReadFileHandled(Server.MapPath("Files/credentials.txt"), u1, p1);
          
         }
     }

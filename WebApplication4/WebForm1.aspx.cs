@@ -12,8 +12,8 @@ namespace WebApplication4
     public partial class WebForm1 : System.Web.UI.Page
     {
 
-        
-        
+
+        Boolean pageloadedFile = false;
         protected LinkedList<string> stacklist
         {
             get { return (LinkedList<string>)Session["stacklist"]; }
@@ -25,11 +25,65 @@ namespace WebApplication4
             GridView1.DataBind();
         }
         //protected string password;
+        public String ReadFileHandled(string filename)
+        {
+            try
+            {
+                int lineNumber = 0;
+                TextReader reader = new StreamReader(filename);
+                //string line = reader.ReadToEnd();
+                string line = reader.ReadLine();
+
+                while (line != null)
+                {
+                    lineNumber++;
+                    Console.WriteLine($"Line {lineNumber}: {line}");
+
+                        // Label2.Text = "Welcome your Username and password are correct";
+
+                        
+
+                        stacklist.AddLast(line);
+                    
+                        line = reader.ReadLine();
+
+
+                }
+                reader.Close();
+                pageloadedFile = true;
+                return "";
+
+
+            }
+            catch (ArgumentException ex)
+            {
+                return ("error: " + ex.Message);
+            }
+            catch (FileNotFoundException ex)
+            {
+                return ("error: " + ex.Message);
+            }
+            catch (IOException ex)
+            {
+                return ("error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return ("error: " + ex.Message);
+            }
+
+
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Label1.Text = "hahahahahahha";
-
-            if (stacklist == null) stacklist = new LinkedList<string>();
+            if (stacklist == null){
+                stacklist = new LinkedList<string>();
+            
+                ReadFileHandled(Server.MapPath("Files/todolist.txt"));
+            } 
             BindGridList();
 
         }
@@ -80,10 +134,50 @@ namespace WebApplication4
             BindGridList();
         }
 
-        protected void Button7_Click(object sender, EventArgs e)//save in file
+
+
+        public String writeFileHandled(string filename)
         {
-            Label1.Text = "amoor6";
+            try
+            {
+
+                TextWriter writer = new StreamWriter(filename);
+                foreach (var item in stacklist)
+                {
+                    writer.WriteLine(item);   
+                }
+                writer.Close();
+                return "";
+
+
+            }
+            catch (ArgumentException ex)
+            {
+                return ("error: " + ex.Message);
+            }
+            catch (FileNotFoundException ex)
+            {
+                return ("error: " + ex.Message);
+            }
+            catch (IOException ex)
+            {
+                return ("error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return ("error: " + ex.Message);
+            }
+
+
+        }
+
+        protected void Button7_Click1(object sender, EventArgs e)
+        {
+            //Label1.Text = "file saved";
+            writeFileHandled(Server.MapPath("Files/todolist.txt"));
+
             BindGridList();
+
         }
     }
     //{

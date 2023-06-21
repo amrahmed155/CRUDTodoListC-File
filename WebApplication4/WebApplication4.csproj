@@ -72,7 +72,7 @@
     <Content Include="css\style.css" />
     <Content Include="Files\credentials.txt" />
     <Content Include="Files\credentialsUser.txt" />
-    <Content Include="Files\todo list.txt" />
+    <Content Include="Files\todolist.txt" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\main.js" />
