@@ -48,7 +48,7 @@
     
 <div class="form-group d-md-flex">
 <div class="w-50">
-
+    <asp:Label ID="Label3" runat="server" Text="Label" style="font-size:10px"></asp:Label>
 </div>
 </div>
 </div>

@@ -19,62 +19,6 @@ namespace WebApplication4
 
         }
 
-        public String ReadFileHandled(string filename, String u1, String p1)
-        {
-            try
-            {
-                int lineNumber = 0;
-                TextReader reader = new StreamReader(filename);
-                //string line = reader.ReadToEnd();
-                string line = reader.ReadLine();
-
-                while (line != null)
-                {
-                    lineNumber++;
-                    Console.WriteLine($"Line {lineNumber}: {line}");
-
-
-                    int spaceIndex = line.IndexOf(" ");
-                    username = line.Substring(0, spaceIndex).Trim();
-                    password = line.Substring(spaceIndex + 1).Trim();
-                    if (u1.Equals(username) && p1.Equals(password))
-                    {
-                        // Label2.Text = "Welcome your Username and password are correct";
-                        reader.Close();
-
-                        Response.Redirect("WebForm1.aspx");
-                        return line;
-
-                    }
-                    line = reader.ReadLine();
-
-
-                }
-                reader.Close();
-                return "";
-
-
-            }
-            catch (ArgumentException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (FileNotFoundException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (IOException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return ("error: " + ex.Message);
-            }
-
-
-        }
-
 
        protected void Button1_Click1(object sender, EventArgs e)
         {
@@ -82,7 +26,10 @@ namespace WebApplication4
 
             String u1 = user1.Text;
             String p1 = password1.Text;
-            ReadFileHandled(Server.MapPath("Files/credentialsUser.txt"), u1, p1);
+            fileloader fl1 = new fileloader(); 
+            if(fl1.ReadFileHandled(Server.MapPath("Files/credentialsUser.txt"), u1, p1))
+            { Label3.Text = "logged in succeed"; }
+            else{ Label3.Text = "invalid login or password"; };
 
             //if (!line.Contains("error:"))
             //{

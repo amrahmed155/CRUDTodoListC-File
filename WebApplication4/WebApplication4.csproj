@@ -85,6 +85,7 @@
     <Content Include="main.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fileloader.cs" />
     <Compile Include="createUser.aspx.cs">
       <DependentUpon>createUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

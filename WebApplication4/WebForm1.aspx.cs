@@ -25,64 +25,18 @@ namespace WebApplication4
             GridView1.DataBind();
         }
         //protected string password;
-        public String ReadFileHandled(string filename)
-        {
-            try
-            {
-                int lineNumber = 0;
-                TextReader reader = new StreamReader(filename);
-                //string line = reader.ReadToEnd();
-                string line = reader.ReadLine();
-
-                while (line != null)
-                {
-                    lineNumber++;
-                    Console.WriteLine($"Line {lineNumber}: {line}");
-
-                        // Label2.Text = "Welcome your Username and password are correct";
-
-                        
-
-                        stacklist.AddLast(line);
-                    
-                        line = reader.ReadLine();
-
-
-                }
-                reader.Close();
-                pageloadedFile = true;
-                return "";
-
-
-            }
-            catch (ArgumentException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (FileNotFoundException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (IOException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return ("error: " + ex.Message);
-            }
-
-
-        }
-
-
+        fileloader fl1=new fileloader();
         protected void Page_Load(object sender, EventArgs e)
         {
             Label1.Text = "hahahahahahha";
             if (stacklist == null){
                 stacklist = new LinkedList<string>();
-            
-                ReadFileHandled(Server.MapPath("Files/todolist.txt"));
+
+                LinkedList<string> filestackList= fl1.ReadFileHandled(Server.MapPath("Files/todolist.txt"));
+                if (filestackList!=null)
+                {
+                    stacklist = filestackList;
+                }
             } 
             BindGridList();
 
@@ -136,45 +90,14 @@ namespace WebApplication4
 
 
 
-        public String writeFileHandled(string filename)
-        {
-            try
-            {
-
-                TextWriter writer = new StreamWriter(filename);
-                foreach (var item in stacklist)
-                {
-                    writer.WriteLine(item);   
-                }
-                writer.Close();
-                return "";
-
-
-            }
-            catch (ArgumentException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (FileNotFoundException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (IOException ex)
-            {
-                return ("error: " + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return ("error: " + ex.Message);
-            }
-
-
-        }
-
+      
         protected void Button7_Click1(object sender, EventArgs e)
         {
             //Label1.Text = "file saved";
-            writeFileHandled(Server.MapPath("Files/todolist.txt"));
+            if (fl1.writeFileHandled(Server.MapPath("Files/todolist.txt"), stacklist)) {
+                Label1.Text = "file saved successfully";
+                    }
+            else { Label1.Text = "an error occured"; };
 
             BindGridList();
 

@@ -52,9 +52,12 @@
 <input type="checkbox" checked>
 <span class="checkmark"></span>
 </label>
+    
 </div>
 <div class="w-50 text-md-right">
-<a href="#" style="color: #fff">Forgot Password</a>
+<%--<a href="#" style="color: #fff">Forgot Password</a>--%>
+    <asp:Label ID="Label3" runat="server" Text="...." BorderStyle="font-size:10px"></asp:Label>
+
 </div>
 </div>
 </div>

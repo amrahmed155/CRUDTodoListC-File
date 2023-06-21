@@ -14,48 +14,14 @@ namespace WebApplication4
 
         }
 
-        public Boolean appendCredentials(String u1, String p1)
-        {
-            try
-            {
-
-                TextWriter writer = new StreamWriter(Server.MapPath("Files/credentialsUser.txt"), append: true);
-                //string line = reader.ReadToEnd();
-                writer.WriteLine(u1 + " " + p1);
-                
-
-                writer.Close();
-                return true;
-
-
-            }
-            catch (ArgumentException ex)
-            {
-                return false;
-            }
-            catch (FileNotFoundException ex)
-            {
-                return false;
-            }
-            catch (IOException ex)
-            {
-                return false;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-
-
-        }
 
         protected void Button1_Click2(object sender, EventArgs e)
         {
 
-
+            fileloader fl1=new fileloader();
             String u1 = user1.Text;
             String p1 = password1.Text;
-            appendCredentials(u1,p1);
+            fl1.appendCredentials(Server.MapPath("Files/credentialsUser.txt"),u1,p1);
         }
     }
 }
