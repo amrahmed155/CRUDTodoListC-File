@@ -29,6 +29,12 @@ namespace WebApplication4
             fileloader fl1= new fileloader();
             String u1 = usera1.Text;
             String p1 = passworda1.Text;
+            if (u1 == "" || u1 == null || p1 == "" || p1 == null)
+            {
+                Label3.Text = " username or password cannot be empty";
+
+            }
+            else { 
             if (fl1.ReadFileHandled(Server.MapPath("Files/credentials.txt"), u1, p1))
             {
                 Response.Redirect("createUser.aspx");
@@ -36,7 +42,8 @@ namespace WebApplication4
 
             }
             else { Label3.Text = "Invalid username or password"; };
-         
+            }
+
         }
     }
     //jenkins 

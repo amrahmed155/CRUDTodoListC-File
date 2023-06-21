@@ -56,7 +56,7 @@
 </div>
 <div class="w-50 text-md-right">
 <%--<a href="#" style="color: #fff">Forgot Password</a>--%>
-    <asp:Label ID="Label3" runat="server" Text="...." BorderStyle="font-size:10px"></asp:Label>
+    <asp:Label ID="Label3" runat="server" Text="...." style="font-size:10px"></asp:Label>
 
 </div>
 </div>

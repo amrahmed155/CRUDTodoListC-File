@@ -80,7 +80,6 @@
     <Content Include="loginUser.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
-    <Content Include="datagridPage.aspx" />
     <Content Include="loginAdmin.aspx" />
     <Content Include="main.aspx" />
   </ItemGroup>
@@ -107,13 +106,6 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="datagridPage.aspx.cs">
-      <DependentUpon>datagridPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="datagridPage.aspx.designer.cs">
-      <DependentUpon>datagridPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="loginAdmin.aspx.cs">
       <DependentUpon>loginAdmin.aspx</DependentUpon>
