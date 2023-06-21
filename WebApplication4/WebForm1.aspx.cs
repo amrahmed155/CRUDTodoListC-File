@@ -39,7 +39,7 @@ namespace WebApplication4
             stacklist.AddLast(TextBox1.Text);
             BindGridList();
         }
-        protected void Button2_Click1(object sender, EventArgs e)
+        protected void Button2_Click1(object sender, EventArgs e)//remove last element added
         {
          try{
                 stacklist.RemoveLast();
