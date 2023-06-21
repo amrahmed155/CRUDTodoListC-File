@@ -43,8 +43,8 @@ namespace WebApplication4
                         // Label2.Text = "Welcome your Username and password are correct";
                         reader.Close();
 
-                        Response.Redirect(Server.MapPath("Files/createUser.aspx"));
-                        return line;
+                        Response.Redirect("createUser.aspx");
+
 
                     }
                     line = reader.ReadLine();
